@@ -31,7 +31,7 @@ export default class BasesMoreViewsPlugin extends Plugin {
     // Register Timeline View
     const timelineViewRegistration: BasesViewRegistration = {
       name: 'Timeline',
-      icon: 'gantt-chart',
+      icon: 'calendar-range',
       factory: (controller, containerEl) => new TimelineView(controller, containerEl),
       options: () => [
         {

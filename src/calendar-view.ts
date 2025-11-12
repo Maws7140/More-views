@@ -1,5 +1,5 @@
-import type { BasesPropertyId, BasesQueryResult, BasesViewConfig, QueryController } from 'obsidian'
-import { BasesView, moment } from 'obsidian'
+import type { BasesPropertyId, QueryController } from 'obsidian'
+import { BasesView } from 'obsidian'
 
 type ViewMode = 'month' | 'week' | 'day'
 
@@ -27,6 +27,11 @@ export class CalendarView extends BasesView {
 
   private render() {
     this.containerEl.empty()
+
+    // Safety check: ensure config is available
+    if (!this.config || !this.data) {
+      return
+    }
 
     // Get the date property to use
     this.datePropertyId = this.config.getAsPropertyId('dateProperty')
