@@ -16,9 +16,9 @@ export default class BasesMoreViewsPlugin extends Plugin {
         {
           type: 'property',
           key: 'dateProperty',
-          name: 'Date Property',
-          description: 'Select the date property to display on the calendar',
+          displayName: 'Date Property',
           filter: (propId) => {
+            if (!propId) return false
             // Accept date properties
             return propId.startsWith('property.') || propId.startsWith('file.')
           }
@@ -37,18 +37,19 @@ export default class BasesMoreViewsPlugin extends Plugin {
         {
           type: 'property',
           key: 'startDateProperty',
-          name: 'Start Date Property',
-          description: 'Select the property for the start date',
+          displayName: 'Start Date Property',
           filter: (propId) => {
+            if (!propId) return false
             return propId.startsWith('property.') || propId.startsWith('file.')
           }
         } as PropertyOption,
         {
           type: 'property',
           key: 'endDateProperty',
-          name: 'End Date Property',
-          description: 'Optional: Select the property for the end date (for duration bars)',
+          displayName: 'End Date Property',
+          placeholder: 'Optional: For duration bars',
           filter: (propId) => {
+            if (!propId) return false
             return propId.startsWith('property.') || propId.startsWith('file.')
           }
         } as PropertyOption
