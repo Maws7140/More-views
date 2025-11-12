@@ -51,11 +51,14 @@ export default defineBuildConfig({
     'build:before': async () => {
       await toErrorable(async () => await rm(join(cwd(), 'main.js')))
       await toErrorable(async () => await rm(join(cwd(), 'manifest.json')))
+      await toErrorable(async () => await rm(join(cwd(), 'styles.css')))
     },
     'build:done': async () => {
       await generateObsidianPluginManifest()
       await copyFile(join(cwd(), 'dist', 'main.js'), join(cwd(), 'main.js'))
       await copyFile(join(cwd(), 'dist', 'manifest.json'), join(cwd(), 'manifest.json'))
+      await copyFile(join(cwd(), 'src', 'styles.css'), join(cwd(), 'styles.css'))
+      await copyFile(join(cwd(), 'src', 'styles.css'), join(cwd(), 'dist', 'styles.css'))
     },
   },
 })

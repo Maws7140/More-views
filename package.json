@@ -1,20 +1,24 @@
 {
-  "name": "obsidian-plugin-template",
+  "name": "obsidian-bases-more-views",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@10.18.1",
-  "description": "Obsidian Template Plugin",
+  "description": "Additional view types for Obsidian Bases - Calendar and Timeline views",
   "author": {
-    "name": "Nólëbase",
-    "email": "nolebase@ayaka.moe",
-    "url": "https://github.com/nolebase"
+    "name": "Maws7140",
+    "email": "",
+    "url": "https://github.com/Maws7140"
   },
   "license": "MIT",
   "keywords": [
-    "nolebase",
-    "nolebase-integration",
     "obsidian",
-    "obsidian-plugin"
+    "obsidian-plugin",
+    "obsidian-bases",
+    "calendar",
+    "timeline",
+    "gantt",
+    "visualization",
+    "project-management"
   ],
   "main": "./dist/main.js",
   "files": [

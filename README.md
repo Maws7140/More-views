@@ -1,159 +1,238 @@
-# Obsidian Template Plugin
+# Bases More Views
 
-> [!NOTE]
-> This is one of the plugins of the collections of plugins called [Nólëbase Integrations](https://github.com/nolebase/integrations). You can explore the other plugins in the collection in [the official documentation site of Nólëbase Integrations](https://nolebase-integrations.ayaka.io).
-
----
-
-## ⚠️ To you, the plugin developer.
-
-This is a template plugin for you to start developing your own Obsidian plugin. It is a good starting point for you to develop your own plugin. You can clone this repository and start developing your own plugin.
-
-We use the most advanced technologies to develop this plugin, including:
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [unbuild](https://github.com/unjs/unbuild)
-- [eslint](https://eslint.org/)
-
-So everything is configured for you to start developing your own plugin, immediately.
-
-## ⚠️ Before publishing
-
-1. Replace all the `obsidian-plugin-template` with the name of your plugin:
-   1. In the `manifest.json` file.
-   2. In the `package.json` file.
-   3. In the `README.md` file.
-2. Replace all the `Obsidian Template Plugin` with the name of your plugin:
-   1. In the `manifest.json` file.
-   2. In the `package.json` file.
-   3. In the `README.md` file.
-3. Fill in a URL to your repository. You can replace with `https://github.com/nolebase/obsidian-plugin-template`
-4. Fill in the Why, Features, What can you do with it, Demos, How to install, TODOs, feel free to remove the sections that are not needed.
-5. Replace the name `SomeViewPlugin` and `SomePlugin` with your own plugin name.
-
-## ⚠️ How to publish?
-
-1. Modify the version in the `manifest.json` file.
-2. Modify the version in the `package.json` file.
-3. Push the changes to the repository.
-4. Go to the [Release] page of the repository.
-5. Create a new release with the tag name as the version number.
-6. Sit back and relax, the plugin will be published with CI/CD pipelines automatically.
+Additional view types for Obsidian Bases - Calendar and Timeline views to visualize your data in new ways.
 
 ## 🤔 Why
 
-Introduce your plugin! Explain why you made it, why would users choose yours!
+Obsidian's new Bases feature (v1.10.0+) provides a powerful way to query and display data from your vault. While it includes built-in table and board views, sometimes you need to visualize data differently. This plugin adds two essential views:
+
+- **📅 Calendar View**: Perfect for tracking tasks, events, deadlines, and any date-based data
+- **📊 Timeline View**: Ideal for project planning, scheduling, and visualizing date ranges
 
 ## 🎨 Features
 
-- 📦 Out of the box support.
-- 🚀 Blazingly fast.
-- 💡 You define it.
+### Calendar View
+- 📅 **Three view modes**: Month, Week, and Day views
+- 🔍 **Easy navigation**: Jump between dates with intuitive controls
+- 📌 **Today highlighting**: Always know where you are in time
+- 🎯 **Click to open**: Click any entry to open the corresponding note
+- 🎨 **Clean design**: Follows Obsidian's native styling
+
+### Timeline View
+- 📊 **Gantt-style visualization**: See tasks and events on a timeline
+- 🔍 **Multiple scales**: Day, week, month, quarter, and year views
+- 📏 **Smart zooming**: Zoom in/out and pan across your timeline
+- 🎯 **Duration bars**: Show start and end dates as visual bars
+- 📍 **Milestones**: Single-date events appear as milestone markers
+- 🎨 **Color-coded**: Entries automatically get distinct colors
+- 🔄 **Fit All**: Automatically adjust view to show all entries
 
 ## 💡 What can you do with it
 
-- Help users to imagine what they can do, show your imagination.
+### Calendar View Use Cases
+- Track task deadlines and due dates
+- Plan content calendars for writing or social media
+- Visualize project milestones
+- Create event schedules
+- Journal entry tracking
+- Habit tracking with date-based logs
+
+### Timeline View Use Cases
+- Project planning and management
+- Sprint planning for agile teams
+- Content production schedules
+- Event planning with setup/breakdown periods
+- Course or curriculum planning
+- Historical event visualization
+- Research timelines
 
 ## 📺 Demos
 
-> Show me what you can do
+### Calendar View
+The Calendar View displays your entries in a familiar calendar format. Switch between month, week, and day views to see your data at different levels of detail.
 
-### How it looks like
+### Timeline View
+The Timeline View shows entries as horizontal bars on a timeline, making it easy to see duration, overlap, and scheduling conflicts at a glance.
 
-Perhaps a GIF?
+## 📋 Requirements
+
+- Obsidian v1.10.0 or higher (required for Bases API)
+- At least one Base configured in your vault
 
 ## 😎 How to install
 
 > [!WARNING]
-> Currently Obsidian Template Plugin is in alpha stage, it wasn't guaranteed to work properly and keep the compatibility with the future versions of itself.
+> Bases More Views is in alpha stage. It may not work properly and compatibility with future versions is not guaranteed.
 >
-> But it is encouraged to try it out and give feedbacks. If you find and bugs or have any suggestions, please feel free to open an issue on [GitHub](https://github.com/nolebase/obsidian-plugin-template/issues).
+> If you find any bugs or have suggestions, please open an issue on [GitHub](https://github.com/Maws7140/More-views/issues).
 
-Currently, it is a bit hard to install the plugin for now before it is published to the official Obsidian plugin store. Manual downloading and installation is required.
+### Install with BRAT
 
-### Install with beta testing helper [BRAT](https://tfthacker.com/brat-quick-guide) plugin
-
-1. Install the [BRAT](https://tfthacker.com/brat-quick-guide) plugin right from the official Obsidian plugin store.
-2. Enable the BRAT plugin in the community plugins settings menu.
-3. Open Command palette to choose `BRAT: Plugins: Add a beta plugin for testing`.
-4. Copy and paste the following link to the first field of the new prompted dialog:
+1. Install the [BRAT](https://tfthacker.com/brat-quick-guide) plugin from the Obsidian community plugins store
+2. Enable the BRAT plugin in Settings → Community plugins
+3. Open Command palette (Ctrl/Cmd+P) and choose `BRAT: Plugins: Add a beta plugin for testing`
+4. Copy and paste this URL:
 
 ```txt
-https://github.com/nolebase/obsidian-plugin-template
+https://github.com/Maws7140/More-views
 ```
 
-5. Find the needed released version on [Release page of Obsidian UnoCSS Plugin](https://github.com/nolebase/obsidian-plugin-template/releases), for example, fill in `0.1.0`.
-6. Enable the "Obsidian Template Plugin" plugin from the `Installed plugins` list.
+5. Enable "Bases More Views" from Settings → Community plugins
 
 ### Install manually
 
-1. Navigate to the [Release page of Obsidian Template Plugin](https://github.com/nolebase/obsidian-plugin-template/releases)
-2. Find the [latest version of the plugin](https://github.com/nolebase/obsidian-plugin-template/releases/latest).
-3. Download the `main.js` file and `manifest.json` file.
-4. Open up the `.obsidian/plugins` directory of your Obsidian vault.
-5. If no `.obsidian/plugins` directory exists, create one.
-6. Create a new directory named `obsidian-plugin-template` inside the `.obsidian/plugins` directory.
-7. Move `main.js` file and `manifest.json` file into the `obsidian-plugin-template` directory.
+1. Go to the [Releases page](https://github.com/Maws7140/More-views/releases)
+2. Download the latest `main.js`, `manifest.json`, and `styles.css` files
+3. Create a folder named `obsidian-bases-more-views` in your vault's `.obsidian/plugins/` directory
+4. Move the downloaded files into that folder
+5. Enable "Bases More Views" from Settings → Community plugins
 
-The directory structure should look like this after these steps:
+The directory structure should look like:
 
-```shell
-❯ tree
-.
+```
+.obsidian/plugins/obsidian-bases-more-views/
 ├── main.js
 ├── manifest.json
+└── styles.css
 ```
 
-8. Enable the "Obsidian Template Plugin" plugin from the "Installed plugins" list.
+## 🚀 How to use
 
-## ⏳ TODOs
+### Setting up a Calendar View
 
-- [ ] Anything on the roadmap?
+1. Create or open a Base in your vault (requires Obsidian 1.10.0+)
+2. Click the view selector in the toolbar
+3. Select **Calendar** from the view options
+4. In the view options (gear icon), select which property contains your dates
+5. Switch between Month, Week, and Day views using the buttons at the top
+6. Navigate using the arrow buttons or click "Today" to return to the current date
+7. Click any entry to open that note
+
+### Setting up a Timeline View
+
+1. Create or open a Base in your vault
+2. Click the view selector in the toolbar
+3. Select **Timeline** from the view options
+4. In the view options (gear icon):
+   - Select a **Start Date Property** (required)
+   - Optionally select an **End Date Property** for duration bars
+5. Use the scale buttons to switch between Day, Week, Month, Quarter, and Year views
+6. Use **+/-** buttons to zoom in/out
+7. Use **◄/►** buttons to pan left/right
+8. Click **Fit All** to automatically show all entries
+9. Click **Today** to center on the current date
+10. Click any entry or bar to open that note
+
+### Tips
+
+- **Calendar View**: Entries without a valid date property won't appear in the view
+- **Timeline View**:
+  - Entries with only a start date appear as circular milestone markers
+  - Entries with both start and end dates appear as horizontal bars
+  - Each entry gets a distinct color automatically
+  - The red line indicates today's date
+
+## ⏳ Future Ideas
+
+Potential features for future versions:
+
+- [ ] Drag-and-drop to change dates in Calendar View
+- [ ] Drag-and-drop to adjust timeline bars
+- [ ] Color coding by property values
+- [ ] Mini-map for Timeline View
+- [ ] Export views as images
+- [ ] Keyboard shortcuts for navigation
+- [ ] Recurring event support
+- [ ] Time-of-day support (not just dates)
+- [ ] Additional view types (Gallery, Kanban, Chart, etc.)
+
+Feel free to suggest more features by opening an issue!
 
 ## 💻 How to develop
 
-1. As [Build a plugin - Developer Documentation](https://docs.obsidian.md/Plugins/Getting+started/Build+a+plugin) has suggested, create a separate vault for development.
-2. (Optional) Install the hot-reload plugin: [pjeby/hot-reload](https://github.com/pjeby/hot-reload).
-3. Create a `.obsidian/plugins` directory in the vault root.
-4. Clone this repository into the `.obsidian/plugins` directory.
-5. Install dependencies
+### Prerequisites
+
+- Node.js (v18 or higher)
+- pnpm (recommended) or npm
+- Obsidian v1.10.0+
+
+### Development Setup
+
+1. Create a separate vault for development (recommended)
+2. Clone this repository into your vault's `.obsidian/plugins` directory:
+
+```shell
+cd /path/to/your/vault/.obsidian/plugins
+git clone https://github.com/Maws7140/More-views.git obsidian-bases-more-views
+cd obsidian-bases-more-views
+```
+
+3. Install dependencies:
 
 ```shell
 pnpm install
+# or
+npm install
 ```
 
-If you use [`@antfu/ni`](https://github.com/antfu/ni), you can also use the following command:
+4. Build the plugin:
 
 ```shell
-ni
+pnpm run build
+# or
+npm run build
 ```
 
-6. Build the plugin for development
+5. Enable the plugin in Obsidian:
+   - Open Settings → Community plugins
+   - Turn off "Safe mode" if needed
+   - Enable "Bases More Views"
+
+6. (Optional) Install [hot-reload](https://github.com/pjeby/hot-reload) plugin for automatic reloading during development
+
+### Development Workflow
+
+1. Make your changes to the TypeScript files in `src/`
+2. Run `pnpm run build` to compile
+3. Reload Obsidian (or use hot-reload plugin)
+4. Test your changes
+
+### Project Structure
+
+```
+src/
+├── main.ts              # Plugin entry point, view registration
+├── calendar-view.ts     # Calendar view implementation
+├── timeline-view.ts     # Timeline view implementation
+└── styles.css           # All view styles
+```
+
+### Building for Release
 
 ```shell
 pnpm run build
 ```
 
-If you use [`@antfu/ni`](https://github.com/antfu/ni), you can also use the following command:
+This will:
+- Compile TypeScript to JavaScript
+- Generate `dist/main.js`
+- Generate `dist/manifest.json`
+- Copy `styles.css` to dist/
+- Copy files to root for easy testing
 
-```shell
-nr build
-```
+## 🤝 Contributing
 
-7. Reload Obsidian to see the changes. (If you use the hot-reload plugin, you don't need to reload Obsidian manually.)
+Contributions are welcome! Please feel free to:
 
-> Reloading can be called from the command palette with `Reload app without saving` command.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-## 🔨 How to build
+## 📄 License
 
-```shell
-pnpm run build
-```
+MIT License - see LICENSE file for details
 
-If you use [`@antfu/ni`](https://github.com/antfu/ni), you can also use the following command:
+---
 
-```shell
-nr build
-```
-
-### Written with ♥
+### Built with ♥ for the Obsidian community
