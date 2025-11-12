@@ -17,13 +17,13 @@ interface ObsidianPluginManifest {
 
 export async function generateObsidianPluginManifest() {
   const manifest = {
-    id: 'obsidian-plugin-template',
-    name: 'Obsidian Template Plugin',
+    id: 'obsidian-bases-more-views',
+    name: 'Bases More Views',
     version: packageJSON.version,
-    minAppVersion: '1.4.0',
-    description: 'Obsidian Template Plugin',
-    author: 'Nolebase',
-    authorUrl: 'https://github.com/nolebase',
+    minAppVersion: '1.10.0',
+    description: 'Additional view types for Obsidian Bases - Calendar and Timeline views',
+    author: 'Maws7140',
+    authorUrl: 'https://github.com/Maws7140',
     isDesktopOnly: false,
   } satisfies ObsidianPluginManifest
 

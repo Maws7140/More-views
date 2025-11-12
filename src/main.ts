@@ -1,58 +1,66 @@
-import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
-
-import { ViewPlugin } from '@codemirror/view'
+import type { BasesViewRegistration, PropertyOption } from 'obsidian'
 import { Plugin } from 'obsidian'
+import { CalendarView } from './calendar-view'
+import { TimelineView } from './timeline-view'
 
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-class SomeViewPlugin implements PluginValue {
-  private view: EditorView
-
-  constructor(view: EditorView) {
-    this.view = view
-
-    this.init()
-  }
-
-  update(update: ViewUpdate) {
-    if (!update.docChanged || !update.viewportChanged)
-      return
-
-    // eslint-disable-next-line no-console
-    console.log('update', update)
-  }
-
-  destroy(): void {
-    // eslint-disable-next-line no-console
-    console.log('destroy')
-  }
-
-  async init() {
-    await this.waitForViewDOM()
-
-    // eslint-disable-next-line no-console
-    console.log('view ready', this.view.dom)
-  }
-
-  async waitForViewDOM(seconds: number = 5) {
-    let i = 0
-
-    while (!this.view || !this.view.dom) {
-      await sleep(1000)
-
-      i++
-      if (i > seconds)
-        return
-    }
-  }
-}
-
-export default class SomePlugin extends Plugin {
+export default class BasesMoreViewsPlugin extends Plugin {
   async onload() {
-    const editorPlugins = ViewPlugin.define(view => new SomeViewPlugin(view))
+    console.log('Loading Bases More Views plugin')
 
-    this.registerEditorExtension(editorPlugins)
+    // Register Calendar View
+    const calendarViewRegistration: BasesViewRegistration = {
+      name: 'Calendar',
+      icon: 'calendar',
+      factory: (controller, containerEl) => new CalendarView(controller, containerEl),
+      options: () => [
+        {
+          type: 'property',
+          key: 'dateProperty',
+          name: 'Date Property',
+          description: 'Select the date property to display on the calendar',
+          filter: (propId) => {
+            // Accept date properties
+            return propId.startsWith('property.') || propId.startsWith('file.')
+          }
+        } as PropertyOption
+      ]
+    }
+
+    this.registerBasesView(calendarViewRegistration)
+
+    // Register Timeline View
+    const timelineViewRegistration: BasesViewRegistration = {
+      name: 'Timeline',
+      icon: 'gantt-chart',
+      factory: (controller, containerEl) => new TimelineView(controller, containerEl),
+      options: () => [
+        {
+          type: 'property',
+          key: 'startDateProperty',
+          name: 'Start Date Property',
+          description: 'Select the property for the start date',
+          filter: (propId) => {
+            return propId.startsWith('property.') || propId.startsWith('file.')
+          }
+        } as PropertyOption,
+        {
+          type: 'property',
+          key: 'endDateProperty',
+          name: 'End Date Property',
+          description: 'Optional: Select the property for the end date (for duration bars)',
+          filter: (propId) => {
+            return propId.startsWith('property.') || propId.startsWith('file.')
+          }
+        } as PropertyOption
+      ]
+    }
+
+    this.registerBasesView(timelineViewRegistration)
+
+    console.log('Bases More Views plugin loaded successfully')
+  }
+
+  onunload() {
+    console.log('Unloading Bases More Views plugin')
   }
 }
